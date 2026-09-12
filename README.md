@@ -1,157 +1,144 @@
-# Medical-Patient-Monitor
-Educational medical patient monitor project using ATmega328P, LM35, LCD, alarms, and Proteus simulation.
-# Medical Patient Monitor
+# ATmega328P Temperature Monitor
 
-An educational embedded-systems project for simulating a basic medical patient monitoring system using **ATmega328P** and **Proteus**.
+An educational embedded-systems project based on the **ATmega328P** microcontroller, an **LM35 temperature sensor**, LCD display, LED indicators, and an audible buzzer alarm.
 
-The project is designed as a modular platform that can display patient parameters, generate visual/audio alarms, and provide a foundation for adding additional medical sensors and monitoring modules.
+The project was designed and tested in **Proteus** as a practical exercise in microcontroller programming, sensor interfacing, display control, and alarm management.
 
 ## Project Overview
 
-The system demonstrates how a microcontroller-based patient monitor can process sensor data and present the results to the user through a display and alarm indicators.
+The system measures temperature using an LM35 analog temperature sensor and processes the sensor signal using an ATmega328P.
 
-The current design focuses on:
+The measured temperature is displayed on an LCD, while LEDs and a buzzer provide visual and audible status indication.
 
-* Heart-rate monitoring
-* Temperature measurement using an **LM35** sensor
-* LCD-based patient information display
-* Visual status indicators
-* Audible alarm using a buzzer
-* Microcontroller-based signal processing
-* Simulation and testing in **Proteus**
+## Main Features
 
-## Main Components
+* 🌡️ Temperature measurement using **LM35**
+* 🧠 **ATmega328P** microcontroller
+* 📟 LCD temperature display
+* 💡 LED status indicators
+* 🔊 Audible buzzer alarm
+* 🔬 Proteus circuit simulation
+* 💻 Embedded C/C++ firmware
+* 📐 Complete circuit schematic
 
-| Component  | Purpose                        |
-| ---------- | ------------------------------ |
-| ATmega328P | Main microcontroller           |
-| LM35       | Temperature sensor             |
-| LCD        | Patient parameter display      |
-| Buzzer     | Audible alarm                  |
-| LEDs       | Visual status indication       |
-| Proteus    | Circuit simulation and testing |
+## Hardware Components
 
-## System Concept
+| Component                         | Function                  |
+| --------------------------------- | ------------------------- |
+| ATmega328P                        | Main microcontroller      |
+| LM35                              | Analog temperature sensor |
+| LCD                               | Temperature display       |
+| LEDs                              | Visual status indication  |
+| Buzzer                            | Audible alarm             |
+| Resistors & supporting components | Circuit operation         |
+
+## How It Works
+
+The LM35 generates an analog voltage proportional to the measured temperature.
+
+The ATmega328P reads the analog signal through its ADC, converts the value into a temperature measurement, and displays the result on the LCD.
+
+The system also uses LED indicators and a buzzer to provide status and alarm feedback.
 
 ```text
-             ┌─────────────────────┐
-             │      Sensors        │
-             │                     │
-             │  LM35 / Heart Rate  │
-             └──────────┬──────────┘
-                        │
-                        ▼
-              ┌──────────────────┐
-              │    ATmega328P    │
-              │                  │
-              │ Signal Processing│
-              │ Alarm Logic      │
-              └───────┬──────────┘
-                      │
-          ┌───────────┼───────────┐
-          │           │           │
-          ▼           ▼           ▼
-       ┌─────┐     ┌─────┐    ┌────────┐
-       │ LCD │     │ LED │    │ Buzzer │
-       └─────┘     └─────┘    └────────┘
+        ┌───────────────┐
+        │     LM35      │
+        │ Temperature   │
+        │    Sensor     │
+        └───────┬───────┘
+                │ Analog Signal
+                ▼
+        ┌───────────────┐
+        │   ATmega328P  │
+        │               │
+        │     ADC       │
+        │  Processing   │
+        │ Alarm Logic   │
+        └───────┬───────┘
+                │
+        ┌───────┼────────┐
+        ▼       ▼        ▼
+      ┌────┐  ┌────┐  ┌──────┐
+      │LCD │  │LEDs│  │Buzzer│
+      └────┘  └────┘  └──────┘
 ```
 
-## Current Features
+## Circuit Schematic
 
-### Temperature Monitoring
+The complete schematic of the temperature-monitoring circuit is included in the repository.
 
-The LM35 temperature sensor is used to measure temperature and provide an analog signal to the microcontroller.
+![Final Schematic](Final_Schematic.jpg)
 
-The system processes the sensor signal and displays the temperature on the LCD.
+## Proteus Simulation
 
-### Heart-Rate Monitoring
+The project was developed and tested using **Proteus Design Suite**.
 
-The project includes a heart-rate monitoring concept with the measured value presented on the patient monitor display.
+The Proteus project file is included in this repository:
 
-### Alarm System
+**ATmega328P Temperature Monitor.pdsprj**
 
-The monitor uses both visual and audible indicators.
+## Firmware
 
-When an abnormal condition is detected, the system can activate:
+The microcontroller firmware is included in:
 
-* LED indicators
-* Audible buzzer alarm
-* Patient parameter information on the LCD
+**ATmega328P Temperature Monitor.ino**
 
-## Simulation
+The firmware handles:
 
-The circuit is developed and tested using **Proteus**.
+* ADC input from the LM35
+* Temperature calculation
+* LCD output
+* LED status control
+* Buzzer control
+* Temperature alarm logic
 
-Proteus makes it possible to test the embedded system, sensor behavior, display output, and alarm logic before implementing the design on physical hardware.
+## Repository Files
 
-## Planned Expansion
+| File                                    | Description                |
+| --------------------------------------- | -------------------------- |
+| `ATmega328P Temperature Monitor.ino`    | ATmega328P firmware        |
+| `ATmega328P Temperature Monitor.pdsprj` | Proteus simulation project |
+| `Final_Schematic.jpg`                   | Complete circuit schematic |
+| `README.md`                             | Project documentation      |
 
-The project is designed with future expansion in mind.
+## Future Development
 
-Possible future modules include:
+This project can be expanded into a more complete patient-monitoring platform.
 
-* **SpO₂ / pulse-oximeter module**
-* **Capnography / CO₂ monitoring**
-* Additional temperature sensors
-* More advanced heart-rate signal processing
-* Larger graphical LCD/TFT display
+Possible future additions include:
+
+* ❤️ Heart-rate monitoring
+* 🫁 SpO₂ / pulse-oximeter module
+* 📈 Capnography / CO₂ monitoring
+* Larger graphical LCD or TFT display
 * Patient alarm management
 * Data logging
 * Serial/USB communication
 * PC-based monitoring interface
 
-## Project Goals
-
-The main goals of this project are:
-
-1. Practice embedded-system design.
-2. Understand sensor interfacing with a microcontroller.
-3. Implement medical-monitoring concepts in a controlled educational environment.
-4. Develop alarm and display logic.
-5. Create a modular architecture that can be expanded with additional monitoring modules.
-6. Demonstrate the project as an engineering portfolio project.
-
-## Hardware
-
-The initial implementation is based on:
-
-* ATmega328P
-* LM35 temperature sensor
-* LCD display
-* LEDs
-* Buzzer
-* Supporting resistors and electronic components
-
-Additional hardware may be added as the project develops.
-
-## Software & Tools
-
-* **Arduino / AVR C/C++**
-* **Proteus Design Suite**
-* Embedded-system development tools
-
 ## Project Status
 
-**Current status:** Development / Prototype
+**Status: Prototype / Educational Project**
 
-The project is being developed incrementally, with individual functions tested before being integrated into the complete patient-monitoring system.
+The project is being developed incrementally, with individual functions tested in simulation before integration.
 
-## Important Note
+## Disclaimer
 
 This project is intended for **educational and engineering development purposes**.
 
-It is a prototype/simulation and is **not a certified medical device** and should not be used for clinical diagnosis, treatment, or patient monitoring.
+It is a prototype/simulation and is **not a certified medical device**. It must not be used for clinical diagnosis, treatment, or real patient monitoring.
 
-## Future Vision
+## Technologies
 
-The long-term goal is to develop the project into a more complete modular patient-monitoring platform.
-
-The architecture can potentially support multiple physiological parameters while maintaining a common display and alarm system.
-
----
+* **ATmega328P**
+* **LM35**
+* **Arduino / Embedded C/C++**
+* **Proteus Design Suite**
+* LCD
+* Embedded electronics
 
 ## Author
 
 **Medical Patient Monitor — Embedded Systems Project**
 
-Built as an educational project in embedded systems, electronics, sensor interfacing, and medical-device simulation.
+An educational project focused on embedded systems, electronics, sensor interfacing, and medical-monitoring simulation.
