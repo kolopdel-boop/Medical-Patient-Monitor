@@ -29,7 +29,7 @@ The project also includes embedded control logic for temperature thresholds, ala
 
 ## Hardware Components
 
-| Component             | Function                                  |
+| Component | Function |
 | --------------------- | ----------------------------------------- |
 | ATmega328P            | Main microcontroller                      |
 | LM35                  | Analog temperature sensor                 |
@@ -130,7 +130,7 @@ This document contains additional technical information about the project and it
 
 ## Repository Files
 
-| File                                                           | Description                                |
+| File | Description |
 | -------------------------------------------------------------- | ------------------------------------------ |
 | `ATmega328P Temperature Monitor.ino`                           | ATmega328P firmware                        |
 | `ATmega328P Temperature Monitor.pdsprj`                        | Proteus simulation project                 |
